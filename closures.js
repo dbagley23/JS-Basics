@@ -9,11 +9,11 @@ var outer = function(){
 //Above you're given a function that returns another function which has a closure over the name variable.
 //Invoke outer saving the return value into another variable called 'inner'.
 
-  //Code Here
+  var inner = outer();
 
 //Once you do that, invoke inner.
 
-  //Code Here
+  inner();
 
 
 
@@ -33,7 +33,16 @@ var callFriend = function(){
 //Do what you need to do in order to call your function and get 'Calling Jake at 435-215-9248' in your console.
 
   //Code Here
-
+var callFriend = function(){
+  var friend = 'Jake';
+  function callF(number){
+    var number = '435-215-9248';
+    return 'Calling ' + friend + ' at ' + number;
+  }
+  return callF;
+};
+var callNow = callFriend();
+callNow();
 
 
 //Next Problem
@@ -45,7 +54,15 @@ var callFriend = function(){
 */
 
   //Code Here
-  var count = makeCounter();
+
+makeCounter = function () {
+  var myInt = 0;
+  return function(){
+    return myInt++;
+   }
+};
+var count = makeCounter();
+
   count() // 1
   count() // 2
   count() // 3
@@ -64,7 +81,16 @@ var callFriend = function(){
 
   //Code Here
 
+function first(){
+  var myName = "Dale";
+  return function(){
+      return "My name is " + myName;
+  }
+}
 
+function second(first();){
+
+}
 
 //Next Problem
 
@@ -92,19 +118,26 @@ var callFriend = function(){
   Above you have a function named counter. Examine the function (without running the code) then below write what you expect to happen when the funciton is invoked. *Hint: setTimeout calls a function or evaluates an expression after a specified number of milliseconds.
 
     //Answer Here
+    after 1 second the number "1" will show up on the screen then 2 seconds later the number "2" then 3 seconds later the number "3" etc. etc.
 
 
   Now, run the function in your console and note what happpens.
 
   Was your answer right or wrong?
 
-    //Answer Here
+    Wrong
 
 
   Fix the counter function so that it works the way you expect it to work. (logging 1 then 2 then 3, etc)
 */
 
-    //Code Here
+var counter = function(){
+  for (var i=1; i<=5; i++) {
+    console.log( i );
+    setTimeout( function timer(){
+    }, i*1000 );
+  }
+};
 
 
 
@@ -124,5 +157,7 @@ var callFriend = function(){
 
   *Hint: Don't let this fool you. Break down what's really happening here.
 */
-
+function funcArray(number){
+  return number;
+}
 
